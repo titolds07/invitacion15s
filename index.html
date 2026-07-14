@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mis XV Años</title>
+    <title>Mis XV Años — Valentina</title>
 
-    <meta name="description" content="Invitación Digital">
+    <meta name="description" content="Invitación Digital a los XV Años de Valentina — 20 de Septiembre de 2026">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,42 +30,50 @@
     <!-- Loader -->
     <div id="loader"></div>
 
+    <!-- Botón de audio flotante -->
+    <button id="audioBtn" class="audio-btn" aria-label="Reproducir música">
+        <svg id="audioIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#D4AF37"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+    </button>
+
     <!-- Portada -->
-  <section id="cover">
+    <section id="cover">
 
-    <div class="overlay"></div>
+        <div class="cover-content">
 
-    <div class="cover-content">
+            <span class="line"></span>
 
-        <span class="line"></span>
+            <h2 class="subtitle">
+                Te invito a celebrar
+            </h2>
 
-        <h2 class="subtitle">
-            Te invito a celebrar
-        </h2>
+            <h1 id="nombre">
+                Valentina
+            </h1>
 
-        <h1 id="nombre">
-            Valentina
-        </h1>
+            <h3 class="title">
+                Mis XV Años
+            </h3>
 
-        <h3 class="title">
-            Mis XV Años
-        </h3>
+            <p class="fecha">
+                20 de Septiembre de 2026
+            </p>
 
-        <p class="fecha">
-            20 de Septiembre de 2026
-        </p>
+            <button id="openInvitation">
+                Abrir Invitación
+            </button>
 
-        <button id="openInvitation">
-            Abrir Invitación
-        </button>
+        </div>
 
-    </div>
-
-</section>
+    </section>
 
     <!-- Contenido -->
     <main id="content">
 
+        <!-- ── Hero ── -->
         <section id="hero">
             <div class="hero-bg">
                 <div class="hero-overlay"></div>
@@ -84,6 +92,7 @@
             </div>
         </section>
 
+        <!-- ── Bienvenidos ── -->
         <section id="welcome">
             <div class="wrap">
                 <div class="welcome-inner">
@@ -94,6 +103,7 @@
             </div>
         </section>
 
+        <!-- ── Cuenta Regresiva ── -->
         <section id="countdown">
             <div class="wrap">
                 <div class="countdown-inner">
@@ -120,23 +130,40 @@
             </div>
         </section>
 
+        <!-- ── Video ── -->
         <section id="video">
             <div class="wrap">
                 <div class="video-inner">
                     <h3 class="section-title">Video</h3>
                     <div class="video-frame">
-                        <div class="video-card">
-                            <div class="video-card-media">
-                                <span class="video-badge">Invitación en movimiento</span>
-                                <h4 class="video-card-title">Una noche para recordar</h4>
-                                <p class="video-card-copy">Este espacio puede reemplazarse por un video real cuando lo tengas listo, pero ya luce elegante y listo para compartir.</p>
+                        <!-- Reemplaza el src con tu link de YouTube cuando esté listo -->
+                        <!-- Ejemplo: https://www.youtube.com/embed/TU_ID_AQUI -->
+                        <div class="video-placeholder" id="videoPlaceholder">
+                            <div class="video-placeholder__overlay">
+                                <div class="video-play-btn" id="videoPlayBtn">
+                                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="11" stroke="#D4AF37" stroke-width="1.4"/>
+                                        <polygon points="10,8 18,12 10,16" fill="#D4AF37"/>
+                                    </svg>
+                                </div>
+                                <p class="video-placeholder__text">Video de invitación próximamente</p>
+                                <p class="video-placeholder__sub">Reemplaza este espacio con tu video de YouTube o Vimeo</p>
                             </div>
                         </div>
+                        <!-- Cuando tengas el video, elimina el div de arriba y descomenta este iframe:
+                        <iframe
+                            src="https://www.youtube.com/embed/TU_ID_AQUI?autoplay=1"
+                            title="Video invitación XV Años Valentina"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        -->
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ── Mensaje Especial ── -->
         <section id="message">
             <div class="wrap">
                 <div class="message-inner">
@@ -147,29 +174,30 @@
             </div>
         </section>
 
+        <!-- ── Galería ── -->
         <section id="gallery">
             <div class="wrap">
                 <div class="gallery-inner">
                     <h3 class="section-title">Galería</h3>
                     <p class="gallery-description">Momentos que se guardan en el corazón</p>
                     <div class="gallery-grid" aria-live="polite">
-                        <button class="thumb" data-src="assets/images/gallery1.svg" aria-label="Ver imagen 1">
-                            <img src="assets/images/gallery1.svg" alt="Imagen 1" loading="lazy">
+                        <button class="thumb" data-src="assets/images/foto1.webp" aria-label="Ver imagen 1">
+                            <img src="assets/images/foto1.webp" alt="Valentina — Imagen 1" loading="lazy">
                         </button>
-                        <button class="thumb" data-src="assets/images/gallery2.svg" aria-label="Ver imagen 2">
-                            <img src="assets/images/gallery2.svg" alt="Imagen 2" loading="lazy">
+                        <button class="thumb" data-src="assets/images/foto2.webp" aria-label="Ver imagen 2">
+                            <img src="assets/images/foto2.webp" alt="Valentina — Imagen 2" loading="lazy">
                         </button>
-                        <button class="thumb" data-src="assets/images/gallery3.svg" aria-label="Ver imagen 3">
-                            <img src="assets/images/gallery3.svg" alt="Imagen 3" loading="lazy">
+                        <button class="thumb" data-src="assets/images/foto3.webp" aria-label="Ver imagen 3">
+                            <img src="assets/images/foto3.webp" alt="Valentina — Imagen 3" loading="lazy">
                         </button>
-                        <button class="thumb" data-src="assets/images/gallery4.svg" aria-label="Ver imagen 4">
-                            <img src="assets/images/gallery4.svg" alt="Imagen 4" loading="lazy">
+                        <button class="thumb" data-src="assets/images/foto1.webp" aria-label="Ver imagen 4">
+                            <img src="assets/images/foto1.webp" alt="Valentina — Imagen 4" loading="lazy">
                         </button>
-                        <button class="thumb" data-src="assets/images/gallery5.svg" aria-label="Ver imagen 5">
-                            <img src="assets/images/gallery5.svg" alt="Imagen 5" loading="lazy">
+                        <button class="thumb" data-src="assets/images/foto2.webp" aria-label="Ver imagen 5">
+                            <img src="assets/images/foto2.webp" alt="Valentina — Imagen 5" loading="lazy">
                         </button>
-                        <button class="thumb" data-src="assets/images/gallery6.svg" aria-label="Ver imagen 6">
-                            <img src="assets/images/gallery6.svg" alt="Imagen 6" loading="lazy">
+                        <button class="thumb" data-src="assets/images/foto3.webp" aria-label="Ver imagen 6">
+                            <img src="assets/images/foto3.webp" alt="Valentina — Imagen 6" loading="lazy">
                         </button>
                     </div>
                 </div>
@@ -186,49 +214,162 @@
             </div>
         </section>
 
+        <!-- ── Detalles del Evento ── -->
         <section id="event">
             <div class="wrap">
                 <div class="event-inner">
                     <h3 class="section-title">Detalles del Evento</h3>
-                    <ul class="event-list">
-                        <li><strong>Fecha:</strong> 20 de Septiembre de 2026</li>
-                        <li><strong>Hora:</strong> 20:00 - 02:00</li>
-                        <li><strong>Lugar:</strong> Gran Salón Central</li>
-                        <li><strong>Dirección:</strong> Av. Principal 123, Ciudad</li>
-                    </ul>
-                    <p class="lead subtle">Tu presencia hará de esta noche un recuerdo aún más especial.</p>
+                    <div class="event-cards">
+                        <div class="event-card">
+                            <div class="event-card__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="#D4AF37" stroke-width="1.6"/>
+                                    <path d="M3 9h18" stroke="#D4AF37" stroke-width="1.6"/>
+                                    <path d="M8 2v4M16 2v4" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="event-card__label">Fecha</span>
+                            <span class="event-card__value">20 de Septiembre de 2026</span>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-card__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="9" stroke="#D4AF37" stroke-width="1.6"/>
+                                    <path d="M12 7v5l3 3" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="event-card__label">Hora</span>
+                            <span class="event-card__value">20:00 — 02:00</span>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-card__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#D4AF37" stroke-width="1.6"/>
+                                    <circle cx="12" cy="9" r="2.5" stroke="#D4AF37" stroke-width="1.6"/>
+                                </svg>
+                            </div>
+                            <span class="event-card__label">Lugar</span>
+                            <span class="event-card__value">Gran Salón Central</span>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-card__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 12h18M3 6h18M3 18h18" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="event-card__label">Dirección</span>
+                            <span class="event-card__value">Av. Principal 123, Ciudad</span>
+                        </div>
+                    </div>
+                    <p class="lead subtle" style="margin-top:20px;">Tu presencia hará de esta noche un recuerdo aún más especial.</p>
                 </div>
             </div>
         </section>
 
+        <!-- ── Dress Code ── -->
         <section id="dresscode">
             <div class="wrap">
                 <div class="dress-inner">
                     <h3 class="section-title">Dress Code</h3>
-                    <p>Etiqueta: Formal / Traje de Gala. Colores sugeridos: tonos pastel y dorado.</p>
+                    <div class="dress-content">
+                        <div class="dress-image-wrap">
+                            <img src="assets/images/dresscode.webp" alt="Dress Code Elegante" class="dress-img">
+                        </div>
+                        <div class="dress-info">
+                            <p class="dress-type">Etiqueta: <strong>Formal / Traje de Gala</strong></p>
+                            <p class="dress-desc">Luce elegante y brillante en esta noche especial.</p>
+                            <div class="dress-colors">
+                                <span class="dress-color-label">Colores sugeridos:</span>
+                                <div class="color-chips">
+                                    <span class="color-chip" style="background:#f5d6e0;" title="Rosa pastel"></span>
+                                    <span class="color-chip" style="background:#e8d5c4;" title="Nude / Champagne"></span>
+                                    <span class="color-chip" style="background:#D4AF37;" title="Dorado"></span>
+                                    <span class="color-chip" style="background:#d4c5e2;" title="Lila pastel"></span>
+                                    <span class="color-chip" style="background:#c8dce8;" title="Azul cielo"></span>
+                                    <span class="color-chip" style="background:#f0f0f0;" title="Blanco/Marfil"></span>
+                                </div>
+                            </div>
+                            <p class="dress-note">✨ Se solicita respetar el código de vestimenta para mantener la armonía del evento.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ── Ubicación ── -->
         <section id="location">
             <div class="wrap">
                 <div class="location-inner">
                     <h3 class="section-title">Ubicación</h3>
-                    <p>Gran Salón Central — Av. Principal 123</p>
-                    <a class="map-link" href="https://www.google.com/maps" target="_blank" rel="noopener">Ver en Google Maps</a>
+                    <p class="location-address">Gran Salón Central — Av. Principal 123</p>
+                    <div class="map-container">
+                        <!-- Reemplaza este iframe con las coordenadas reales del salón -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d-75.5748!3d6.2442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTQnMzkuMSJOIDc1wrAzNCczMy4zIlc!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+                            width="100%"
+                            height="340"
+                            style="border:0; border-radius:16px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación del evento">
+                        </iframe>
+                    </div>
+                    <a class="map-link" href="https://www.google.com/maps" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:6px;">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#D4AF37" stroke-width="1.8" fill="none"/>
+                            <circle cx="12" cy="9" r="2.5" stroke="#D4AF37" stroke-width="1.8"/>
+                        </svg>
+                        Abrir en Google Maps
+                    </a>
                 </div>
             </div>
         </section>
 
+        <!-- ── RSVP ── -->
         <section id="rsvp">
             <div class="wrap">
                 <div class="rsvp-inner">
                     <h3 class="section-title">Confirmar Asistencia</h3>
                     <p class="lead">Tu confirmación nos ayuda a preparar todo con perfección.</p>
+
+                    <!-- Botón rápido de WhatsApp -->
+                    <a class="rsvp-whatsapp" href="https://wa.me/573000000000?text=Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20A%C3%B1os%20de%20Valentina%20%F0%9F%8E%80" target="_blank" rel="noopener">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Confirmar por WhatsApp
+                    </a>
+
+                    <div class="rsvp-divider"><span>o completa el formulario</span></div>
+
+                    <!-- Formulario -->
+                    <form class="rsvp-form" id="rsvpForm" novalidate>
+                        <div class="rsvp-field">
+                            <label for="rsvp-name">Tu nombre completo *</label>
+                            <input type="text" id="rsvp-name" name="name" placeholder="Ej: María González" required autocomplete="name">
+                        </div>
+                        <div class="rsvp-field">
+                            <label for="rsvp-email">Correo electrónico *</label>
+                            <input type="email" id="rsvp-email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+                        </div>
+                        <div class="rsvp-field">
+                            <label for="rsvp-guests">¿Cuántos acompañantes traes?</label>
+                            <select id="rsvp-guests" name="guests">
+                                <option value="0">Solo yo</option>
+                                <option value="1">1 acompañante</option>
+                                <option value="2">2 acompañantes</option>
+                                <option value="3">3 acompañantes</option>
+                            </select>
+                        </div>
+                        <button class="btn" type="submit">✉ Confirmar asistencia</button>
+                        <p class="rsvp-msg" id="rsvp-msg" aria-live="polite"></p>
+                    </form>
                 </div>
             </div>
         </section>
 
+        <!-- ── Cierre ── -->
         <section id="closing">
             <div class="wrap">
                 <div class="closing-inner">
@@ -241,6 +382,16 @@
 
     </main>
 
+    <!-- Footer -->
+    <footer id="site-footer">
+        <div class="footer-inner">
+            <p class="footer-name">Valentina</p>
+            <p class="footer-subtitle">XV Años · 20 de Septiembre de 2026</p>
+            <div class="footer-divider"></div>
+            <p class="footer-note">Hecho con amor 🤍 · Invitación digital exclusiva</p>
+        </div>
+    </footer>
+
     <script src="js/config.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/app.js"></script>
@@ -249,6 +400,7 @@
     <script src="js/gallery.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/rsvp.js"></script>
+    <script src="js/audio.js"></script>
 
 </body>
 

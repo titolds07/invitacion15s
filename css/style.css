@@ -1,180 +1,207 @@
-*{
+* {
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
-}
-
-html{
-
-    scroll-behavior:smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
 }
 
-body{
+html {
 
-    font-family:var(--textFont);
-    background:#050505;
-    color:#f8f8f8;
-    overflow-x:hidden;
-    letter-spacing:.2px;
-
-}
-
-#cover{
-
-    position:relative;
-
-    width:100%;
-
-    min-height:100vh;
-
-    background:
-    linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.5)),
-    radial-gradient(circle at top,#8a6a27 0%,#1b1207 45%,#060606 100%);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    /* Evitar que el scrollbar mueva el contenido */
+    scrollbar-gutter: stable;
 
 }
 
-.overlay{
+body {
 
-    position:absolute;
-
-    inset:0;
-
-    backdrop-filter:blur(2px);
-
-}
-
-.cover-content{
-
-    position:relative;
-
-    z-index:10;
-
-    color:white;
-
-    text-align:center;
-
-    width:90%;
+    font-family: var(--textFont);
+    background: #050505;
+    color: #f8f8f8;
+    overflow-x: hidden;
+    letter-spacing: .2px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
 }
 
-.line{
+#cover {
 
-    display:block;
+    position: relative;
 
-    width:120px;
+    width: 100%;
+    min-width: 0;
 
-    height:2px;
+    min-height: 100vh;
+    min-height: 100dvh;
 
-    background:var(--primary);
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .55)),
+        radial-gradient(circle at 50% 38%, #8a6a27 0%, #1b1207 45%, #060606 100%);
+    background-size: cover;
+    background-position: center;
 
-    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    margin-bottom:40px;
-
-}
-
-.subtitle{
-
-    font-size:20px;
-
-    font-weight:300;
-
-    letter-spacing:3px;
-
-    margin-bottom:20px;
+    overflow: hidden;
+    box-sizing: border-box;
 
 }
 
-#nombre{
+/* Cuando exista portada.webp se aplica aquí — cambia la URL si el archivo tiene otro nombre */
+#cover.has-bg-image {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .52)),
+        url('../assets/images/portada.webp');
+}
 
-    font-family:var(--titleFont);
+.overlay {
 
-    font-size:90px;
+    position: absolute;
 
-    color:var(--primary);
-
-    margin-bottom:10px;
+    inset: 0;
 
 }
 
-.title{
+.cover-content {
 
-    font-size:34px;
+    position: relative;
 
-    font-weight:400;
+    z-index: 10;
 
-    margin-bottom:25px;
+    color: white;
 
-}
+    text-align: center;
 
-.fecha{
+    width: 90%;
+    max-width: 700px;
 
-    font-size:20px;
+    /* Centrado garantizado */
+    margin-left: auto;
+    margin-right: auto;
 
-    letter-spacing:2px;
-
-    margin-bottom:60px;
-
-}
-
-#openInvitation{
-
-    border:none;
-
-    background:linear-gradient(135deg, var(--primary), #f7e3aa);
-
-    color:#111;
-
-    padding:18px 54px;
-
-    font-size:18px;
-
-    border-radius:999px;
-
-    cursor:pointer;
-
-    transition:.35s;
-    font-weight:700;
-    letter-spacing:.8px;
-    box-shadow:0 16px 40px rgba(212,175,55,.23);
+    /* Evitar que el contenido se extienda fuera */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
-#openInvitation:hover{
+.line {
 
-    transform:translateY(-4px);
+    display: block;
 
-    box-shadow:0 20px 50px rgba(212,175,55,.35);
+    width: 120px;
+
+    height: 2px;
+
+    background: var(--primary);
+
+    margin: auto;
+
+    margin-bottom: 40px;
 
 }
 
-#content{
+.subtitle {
 
-    display:none;
-    background:linear-gradient(180deg, #050505 0%, #121212 100%);
+    font-size: 20px;
+
+    font-weight: 300;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
 
 }
-#loader{
 
-    position:fixed;
+#nombre {
 
-    inset:0;
+    font-family: var(--titleFont);
 
-    background:#0b0b0b;
+    font-size: 90px;
 
-    z-index:99999;
+    color: var(--primary);
 
-    transition:.5s;
+    margin-bottom: 10px;
+
+}
+
+.title {
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+
+}
+
+.fecha {
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 60px;
+
+}
+
+#openInvitation {
+
+    border: none;
+
+    background: linear-gradient(135deg, var(--primary), #f7e3aa);
+
+    color: #111;
+
+    padding: 18px 54px;
+
+    font-size: 18px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition: .35s;
+    font-weight: 700;
+    letter-spacing: .8px;
+    box-shadow: 0 16px 40px rgba(212, 175, 55, .23);
+
+}
+
+#openInvitation:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 20px 50px rgba(212, 175, 55, .35);
+
+}
+
+#content {
+
+    display: none;
+    background: linear-gradient(180deg, #050505 0%, #121212 100%);
+
+}
+
+#loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #0b0b0b;
+
+    z-index: 99999;
+
+    transition: .5s;
 
 }
