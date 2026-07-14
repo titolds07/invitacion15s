@@ -1,0 +1,93 @@
+/* Entrada suave */
+
+.fade-up{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    animation:fadeUp 1.2s forwards;
+
+}
+
+.fade{
+
+    opacity:0;
+
+    animation:fade 1.5s forwards;
+
+}
+
+.zoom{
+
+    opacity:0;
+
+    transform:scale(.8);
+
+    animation:zoom 1.2s forwards;
+
+}
+
+@keyframes fade{
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes zoom{
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Brillo del botón */
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(212,175,55,0);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 35px rgba(212,175,55,.45);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(212,175,55,0);
+
+    }
+
+}
+
+#openInvitation{
+
+    animation:glow 2.5s infinite;
+
+}

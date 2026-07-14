@@ -1,0 +1,18 @@
+:root{
+
+    --primary:#D4AF37;
+    --secondary:#FFFFFF;
+    --dark:#0F0F0F;
+    --text:#444444;
+    --background:#F8F8F8;
+
+    --titleFont:'Playfair Display', serif;
+    --textFont:'Poppins', sans-serif;
+
+    --radius:18px;
+
+    --transition:.4s ease;
+
+    --maxWidth:1200px;
+
+}

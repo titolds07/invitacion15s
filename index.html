@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis XV Años</title>
+
+    <meta name="description" content="Invitación Digital">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader"></div>
+
+    <!-- Portada -->
+  <section id="cover">
+
+    <div class="overlay"></div>
+
+    <div class="cover-content">
+
+        <span class="line"></span>
+
+        <h2 class="subtitle">
+            Te invito a celebrar
+        </h2>
+
+        <h1 id="nombre">
+            Valentina
+        </h1>
+
+        <h3 class="title">
+            Mis XV Años
+        </h3>
+
+        <p class="fecha">
+            20 de Septiembre de 2026
+        </p>
+
+        <button id="openInvitation">
+            Abrir Invitación
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- Contenido -->
+    <main id="content">
+
+        <section id="hero">
+            <div class="hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="hero-inner">
+                    <span class="line"></span>
+                    <p class="hero-subtitle">Estás cordialmente invitado a celebrar</p>
+                    <h2 class="hero-name">Valentina</h2>
+                    <p class="hero-phrase">Una noche de sueños y recuerdos</p>
+                    <p class="hero-date">20 de Septiembre de 2026</p>
+                    <a href="#countdown" class="scroll-down" aria-label="Continuar">
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5v14M5 12l7 7 7-7" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="welcome">
+            <div class="wrap">
+                <div class="welcome-inner">
+                    <h3 class="section-title">Bienvenidos</h3>
+                    <p class="lead">Acompáñanos a celebrar este momento tan especial con música, baile y mucha alegría.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="countdown">
+            <div class="wrap">
+                <div class="countdown-inner">
+                    <h3 class="section-title">Cuenta Regresiva</h3>
+                    <div class="timer" role="timer" aria-live="polite" aria-atomic="true">
+                        <div class="time-box">
+                            <span class="number" id="days">00</span>
+                            <span class="label">Días</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number" id="hours">00</span>
+                            <span class="label">Horas</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number" id="minutes">00</span>
+                            <span class="label">Minutos</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number" id="seconds">00</span>
+                            <span class="label">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video">
+            <div class="wrap">
+                <div class="video-inner">
+                    <h3 class="section-title">Video</h3>
+                    <div class="video-frame">
+                        <!-- placeholder YouTube embed, reemplaza por el enlace real -->
+                        <iframe width="100%" height="420" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video invitación" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="wrap">
+                <div class="gallery-inner">
+                    <h3 class="section-title">Galería</h3>
+                    <p class="gallery-description">Momentos para recordar</p>
+                    <div class="gallery-grid" aria-live="polite">
+                        <button class="thumb" data-src="assets/images/gallery1.svg" aria-label="Ver imagen 1">
+                            <img src="assets/images/gallery1.svg" alt="Imagen 1" loading="lazy">
+                        </button>
+                        <button class="thumb" data-src="assets/images/gallery2.svg" aria-label="Ver imagen 2">
+                            <img src="assets/images/gallery2.svg" alt="Imagen 2" loading="lazy">
+                        </button>
+                        <button class="thumb" data-src="assets/images/gallery3.svg" aria-label="Ver imagen 3">
+                            <img src="assets/images/gallery3.svg" alt="Imagen 3" loading="lazy">
+                        </button>
+                        <button class="thumb" data-src="assets/images/gallery4.svg" aria-label="Ver imagen 4">
+                            <img src="assets/images/gallery4.svg" alt="Imagen 4" loading="lazy">
+                        </button>
+                        <button class="thumb" data-src="assets/images/gallery5.svg" aria-label="Ver imagen 5">
+                            <img src="assets/images/gallery5.svg" alt="Imagen 5" loading="lazy">
+                        </button>
+                        <button class="thumb" data-src="assets/images/gallery6.svg" aria-label="Ver imagen 6">
+                            <img src="assets/images/gallery6.svg" alt="Imagen 6" loading="lazy">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox modal -->
+            <div id="lightbox" class="lightbox" aria-hidden="true">
+                <button class="lightbox-close" aria-label="Cerrar">✕</button>
+                <button class="lightbox-prev" aria-label="Anterior">‹</button>
+                <div class="lightbox-content">
+                    <img src="" alt="" id="lightbox-image">
+                </div>
+                <button class="lightbox-next" aria-label="Siguiente">›</button>
+            </div>
+        </section>
+
+        <section id="event">
+            <div class="wrap">
+                <div class="event-inner">
+                    <h3 class="section-title">Detalles del Evento</h3>
+                    <ul class="event-list">
+                        <li><strong>Fecha:</strong> 20 de Septiembre de 2026</li>
+                        <li><strong>Hora:</strong> 20:00 - 02:00</li>
+                        <li><strong>Lugar:</strong> Gran Salón Central</li>
+                        <li><strong>Dirección:</strong> Av. Principal 123, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="dresscode">
+            <div class="wrap">
+                <div class="dress-inner">
+                    <h3 class="section-title">Dress Code</h3>
+                    <p>Etiqueta: Formal / Traje de Gala. Colores sugeridos: tonos pastel y dorado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="location">
+            <div class="wrap">
+                <div class="location-inner">
+                    <h3 class="section-title">Ubicación</h3>
+                    <p>Gran Salón Central — Av. Principal 123</p>
+                    <a class="map-link" href="https://www.google.com/maps" target="_blank" rel="noopener">Ver en Google Maps</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp">
+            <div class="wrap">
+                <div class="rsvp-inner">
+                    <h3 class="section-title">Confirmar Asistencia</h3>
+                    <form id="rsvpForm" class="rsvp-form">
+                        <label for="rsvp-name">Nombre</label>
+                        <input id="rsvp-name" name="name" type="text" required>
+
+                        <label for="rsvp-email">Correo</label>
+                        <input id="rsvp-email" name="email" type="email" required>
+
+                        <label for="rsvp-guests">Acompañantes</label>
+                        <input id="rsvp-guests" name="guests" type="number" min="0" max="10" value="0">
+
+                        <button type="submit" class="btn">Confirmar</button>
+                        <p id="rsvp-msg" class="rsvp-msg" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer></footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/rsvp.js"></script>
+
+</body>
+
+</html>
