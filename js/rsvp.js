@@ -21,7 +21,7 @@
         submissions.push({name,email,guests,when:new Date().toISOString()});
         localStorage.setItem('rsvps', JSON.stringify(submissions));
 
-        msg.textContent = '¡Confirmación recibida! Gracias.';
+        msg.innerHTML = '¡Confirmación recibida! Gracias por acompañarnos en esta celebración.';
         form.reset();
     });
 

@@ -1,43 +1,23 @@
 @media(max-width:900px){
 
-#nombre{
-
-    font-size:60px;
-
-}
-
-.title{
-
-    font-size:26px;
-
-}
+#nombre{font-size:60px;}
+.title{font-size:26px;}
+.hero-name{font-size:60px;}
+.timer{flex-wrap:wrap;}
+.time-box{min-width:92px;}
 
 }
 
 @media(max-width:600px){
 
-#nombre{
-
-    font-size:42px;
-
-}
-
-.subtitle{
-
-    font-size:16px;
-
-}
-
-.fecha{
-
-    font-size:16px;
-
-}
-
-#openInvitation{
-
-    width:100%;
-
-}
+#nombre{font-size:42px;}
+.subtitle{font-size:16px;}
+.fecha{font-size:16px;}
+#openInvitation{width:100%;padding:16px 24px;}
+.hero-name{font-size:42px;}
+.hero-subtitle{font-size:14px;letter-spacing:1.5px;}
+.section-title{font-size:28px;}
+.gallery-grid{grid-template-columns:1fr;}
+.rsvp-form{width:100%;}
 
 }
