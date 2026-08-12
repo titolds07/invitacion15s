@@ -17,16 +17,16 @@
     // ── Iconos SVG ──
     const iconPlay = `
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#D4AF37"/>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#C980DF"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#C980DF" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="#C980DF" stroke-width="1.8" stroke-linecap="round"/>
         </svg>`;
 
     const iconMute = `
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#D4AF37"/>
-            <line x1="23" y1="9" x2="17" y2="15" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="17" y1="9" x2="23" y2="15" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#C980DF"/>
+            <line x1="23" y1="9" x2="17" y2="15" stroke="#C980DF" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="17" y1="9" x2="23" y2="15" stroke="#C980DF" stroke-width="1.8" stroke-linecap="round"/>
         </svg>`;
 
     // ── Fade in/out suave ──

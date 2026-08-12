@@ -33,7 +33,7 @@
         localStorage.setItem('rsvps', JSON.stringify(submissions));
 
         // Feedback positivo
-        showMsg(`🎀 ¡Listo, ${name}! Tu asistencia fue confirmada. ¡Te esperamos!`, '#D4AF37');
+        showMsg(`🎀 ¡Listo, ${name}! Tu asistencia fue confirmada. ¡Te esperamos!`, '#C980DF');
         form.reset();
 
         // Animación de éxito en el botón
@@ -51,7 +51,7 @@
     function showMsg(text, color) {
         if (!msg) return;
         msg.textContent = text;
-        msg.style.color = color || '#D4AF37';
+        msg.style.color = color || '#C980DF';
         msg.style.opacity = '0';
         msg.style.transition = 'opacity .3s';
         setTimeout(() => { msg.style.opacity = '1'; }, 10);
