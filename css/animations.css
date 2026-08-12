@@ -68,19 +68,19 @@
 
     0%{
 
-        box-shadow:0 0 0 rgba(201,128,223,0);
+        box-shadow:0 0 0 rgba(176,196,222,0);
 
     }
 
     50%{
 
-        box-shadow:0 0 35px rgba(201,128,223,.45);
+        box-shadow:0 0 35px rgba(176,196,222,.45);
 
     }
 
     100%{
 
-        box-shadow:0 0 0 rgba(201,128,223,0);
+        box-shadow:0 0 0 rgba(176,196,222,0);
 
     }
 
@@ -90,4 +90,30 @@
 
     animation:glow 2.5s infinite;
 
+}
+
+/* Partículas plateadas muy sutiles para la apertura */
+.particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    bottom:18%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,1), rgba(176,196,222,.9));
+    border-radius:50%;
+    filter:blur(.2px) drop-shadow(0 0 6px rgba(176,196,222,.06));
+    transform-origin:center;
+    will-change:transform, opacity;
+    animation:particleRise 1.6s ease-out forwards;
+}
+
+@keyframes particleRise{
+    to{
+        transform:translateY(-120px) scale(.7) rotate(10deg);
+        opacity:0;
+    }
 }

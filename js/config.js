@@ -1,21 +1,23 @@
 const INVITACION={
 
-    nombre:"Valentina",
+    nombre:"Everlin",
 
     titulo:"Mis XV Años",
 
-    fecha:"20 Septiembre 2026",
+    fecha:"11 de Diciembre del 2026",
 
-    hora:"7:00 PM",
+    hora:"19:00",
 
-    lugar:"Hotel Campestre",
+    lugar:"Banquete Ilusiones",
 
-    ciudad:"Medellín",
+    ciudad:"Bello",
 
-    dresscode:"Elegante",
+    dresscode:"Formal / Traje de Gala",
 
     musica:"assets/audio/music.mp3",
 
-    video:"assets/videos/video.mp4"
+    video:"assets/videos/video.mp4",
+    /* Si prefieres usar la versión en YouTube como fuente de audio, coloca solo el videoId */
+    youtubeId: "XP1GA2-jK3s"
 
 }

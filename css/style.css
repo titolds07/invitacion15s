@@ -19,8 +19,12 @@ html {
 body {
 
     font-family: var(--textFont);
-    background: #050505;
-    color: #f8f8f8;
+    background-color: var(--dark);
+    /* Subtle marble-like texture using layered radial gradients */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(224,224,224,0.007), transparent 6%),
+        radial-gradient(circle at 80% 80%, rgba(224,224,224,0.008), transparent 5%);
+    color: var(--text);
     overflow-x: hidden;
     letter-spacing: .2px;
     width: 100%;
@@ -158,11 +162,11 @@ body {
 
     border: none;
 
-    background: linear-gradient(135deg, var(--primary), #87C3EF);
+    background: linear-gradient(135deg, var(--accent), rgba(211,211,211,0.92));
 
     color: #111;
 
-    padding: 18px 54px;
+    padding: 16px 50px;
 
     font-size: 18px;
 
@@ -170,10 +174,10 @@ body {
 
     cursor: pointer;
 
-    transition: .35s;
+    transition: transform var(--transition), box-shadow var(--transition);
     font-weight: 700;
     letter-spacing: .8px;
-    box-shadow: 0 16px 40px rgba(201, 128, 223, .23);
+    box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 0 12px rgba(176,196,222,.12);
 
 }
 
@@ -181,7 +185,7 @@ body {
 
     transform: translateY(-4px);
 
-    box-shadow: 0 20px 50px rgba(201, 128, 223, .35);
+    box-shadow: 0 22px 56px rgba(0,0,0,.55), 0 0 20px rgba(176,196,222,.18);
 
 }
 

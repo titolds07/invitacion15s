@@ -1,10 +1,12 @@
 :root{
 
-    --primary:#C980DF;
-    --secondary:#FFFFFF;
-    --dark:#0F0F0F;
-    --text:#444444;
-    --background:#F8F8F8;
+    /* Paleta principal - 'El Secreto de Gala' */
+    --accent:#B0C4DE; /* mora azul claro (detalle elegante) */
+    --primary:#E0E0E0; /* gris plata espejo — textos principales */
+    --muted:#D3D3D3; /* gris plata satinado — detalles secundarios */
+    --dark:#1A1A1A; /* fondo antracita profundo */
+    --text:#E0E0E0;
+    --background:#1A1A1A;
 
     --titleFont:'Playfair Display', serif;
     --textFont:'Poppins', sans-serif;

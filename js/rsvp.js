@@ -33,14 +33,14 @@
         localStorage.setItem('rsvps', JSON.stringify(submissions));
 
         // Feedback positivo
-        showMsg(`🎀 ¡Listo, ${name}! Tu asistencia fue confirmada. ¡Te esperamos!`, '#C980DF');
+        showMsg(`🎀 ¡Listo, ${name}! Tu asistencia fue confirmada. ¡Te esperamos!`, '#B0C4DE');
         form.reset();
 
         // Animación de éxito en el botón
         const btn = form.querySelector('.btn');
         if (btn) {
             btn.textContent = '✓ Confirmado';
-            btn.style.background = 'linear-gradient(135deg, #25d366, #1ebe5d)';
+            btn.style.background = 'linear-gradient(135deg, #B0C4DE, #D3D3D3)';
             setTimeout(() => {
                 btn.textContent = '✉ Confirmar asistencia';
                 btn.style.background = '';
@@ -51,7 +51,7 @@
     function showMsg(text, color) {
         if (!msg) return;
         msg.textContent = text;
-        msg.style.color = color || '#C980DF';
+        msg.style.color = color || '#B0C4DE';
         msg.style.opacity = '0';
         msg.style.transition = 'opacity .3s';
         setTimeout(() => { msg.style.opacity = '1'; }, 10);
