@@ -1,206 +1,90 @@
-// ── Audio Controller — Invitación XV Años ──
-(function () {
+﻿(function () {
     'use strict';
 
-    const btn   = document.getElementById('audioBtn');
-    const icon  = document.getElementById('audioIcon');
-    if (!btn) return;
+    const player = document.getElementById('audioPlayer');
+    const button = document.getElementById('audioBtn');
+    const icon = document.getElementById('audioIcon');
+    const volumeControl = document.getElementById('audioVolume');
+    const openButton = document.getElementById('openInvitation');
 
-    // Variables de reproducción: soporte para YouTube IFrame (si se provee) o Audio local
+    if (!player || !button || !icon || typeof INVITACION === 'undefined' || !INVITACION.musica) {
+        if (player) player.hidden = true;
+        return;
+    }
+
+    const audio = new Audio(INVITACION.musica);
+    audio.loop = true;
+    audio.preload = 'none';
+
     let playing = false;
-    let fadeId = null;
+    let fadeTimer = null;
+    let targetVolume = Number(volumeControl?.value || 38) / 100;
 
-    // Si se indica `INVITACION.youtubeId`, usaremos un player de YouTube embebido como fuente de audio
-    let ytPlayer = null;
-    let audio = null;
-    const USE_YT = typeof INVITACION !== 'undefined' && INVITACION.youtubeId;
+    const playIcon = '<path d="m9 6 10 6-10 6V6Z" fill="currentColor"/>';
+    const pauseIcon = '<path d="M8 6v12M16 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
 
-    if (USE_YT) {
-        // placeholder: volumen 38% equivalente (YouTube volume 0-100)
-        var targetVolPct = 38;
-    } else {
-        // Crear elemento de audio HTML5
-        audio = new Audio(INVITACION.musica);
-        audio.loop = true;
-        audio.volume = 0.38;
-    }
-
-    // ── Iconos SVG ──
-    const iconPlay = `
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#B0C4DE"/>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#B0C4DE" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="#B0C4DE" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>`;
-
-    const iconMute = `
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#B0C4DE"/>
-            <line x1="23" y1="9" x2="17" y2="15" stroke="#B0C4DE" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="17" y1="9" x2="23" y2="15" stroke="#B0C4DE" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>`;
-
-    // ── Fade in/out suave ──
-    function fadeIn() {
-        clearInterval(fadeId);
-        if (USE_YT && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-            // start with minimal volume then ramp to targetVolPct
-            try {
-                ytPlayer.setVolume(0);
-                ytPlayer.playVideo();
-            } catch (e) { /* ignore */ }
-            let vol = 0;
-            fadeId = setInterval(() => {
-                if (vol < targetVolPct) {
-                    vol = Math.min(vol + 3, targetVolPct);
-                    ytPlayer.setVolume(vol);
-                } else {
-                    clearInterval(fadeId);
-                }
-            }, 90);
-        } else if (audio) {
-            audio.volume = 0;
-            audio.play().catch(() => {});
-            fadeId = setInterval(() => {
-                if (audio.volume < 0.36) {
-                    audio.volume = Math.min(audio.volume + 0.03, 0.38);
-                } else {
-                    clearInterval(fadeId);
-                }
-            }, 80);
-        }
-    }
-
-    function fadeOut(callback) {
-        clearInterval(fadeId);
-        if (USE_YT && ytPlayer && typeof ytPlayer.setVolume === 'function') {
-            let vol = ytPlayer.getVolume ? ytPlayer.getVolume() : targetVolPct;
-            fadeId = setInterval(() => {
-                if (vol > 3) {
-                    vol = Math.max(vol - 3, 0);
-                    ytPlayer.setVolume(vol);
-                } else {
-                    try { ytPlayer.pauseVideo(); } catch (e) {}
-                    clearInterval(fadeId);
-                    if (callback) callback();
-                }
-            }, 90);
-        } else if (audio) {
-            fadeId = setInterval(() => {
-                if (audio.volume > 0.03) {
-                    audio.volume = Math.max(audio.volume - 0.03, 0);
-                } else {
-                    audio.pause();
-                    audio.currentTime = 0;
-                    audio.volume = 0.38;
-                    clearInterval(fadeId);
-                    if (callback) callback();
-                }
-            }, 80);
-        }
-    }
-
-    // ── Actualizar UI ──
-    function setPlayingState(isPlaying) {
+    function renderState(isPlaying) {
         playing = isPlaying;
-        icon.innerHTML = isPlaying ? iconPlay : iconMute;
-        btn.classList.toggle('is-playing', isPlaying);
-        btn.setAttribute('aria-label', isPlaying ? 'Silenciar música' : 'Reproducir música');
+        icon.innerHTML = isPlaying ? pauseIcon : playIcon;
+        button.classList.toggle('is-playing', isPlaying);
+        button.setAttribute('aria-label', isPlaying ? 'Pausar música' : 'Reproducir música');
+        button.setAttribute('aria-pressed', String(isPlaying));
     }
 
-    // ── Toggle ──
-    btn.addEventListener('click', () => {
-        if (!playing) {
-            // Si se está usando YouTube y el player aún no existe, esperar a que la API inicialice
-            if (USE_YT && !ytPlayer) {
-                console.log('YouTube player no inicializado aún — inténtalo de nuevo en breve.');
-                return;
+    function fadeTo(volume, onComplete) {
+        clearInterval(fadeTimer);
+        const step = volume > audio.volume ? 0.025 : -0.025;
+        fadeTimer = setInterval(() => {
+            const next = audio.volume + step;
+            const reached = step > 0 ? next >= volume : next <= volume;
+            audio.volume = reached ? volume : Math.max(0, Math.min(1, next));
+            if (reached) {
+                clearInterval(fadeTimer);
+                if (onComplete) onComplete();
             }
-            fadeIn();
-            setPlayingState(true);
-        } else {
-            fadeOut(() => setPlayingState(false));
-            icon.innerHTML = iconMute;
+        }, 60);
+    }
+
+    async function playMusic() {
+        try {
+            audio.volume = 0;
+            await audio.play();
+            renderState(true);
+            fadeTo(targetVolume);
+        } catch (error) {
+            renderState(false);
+            console.warn('No se pudo reproducir la música de la invitación.', error);
         }
+    }
+
+    function pauseMusic() {
+        clearInterval(fadeTimer);
+        fadeTo(0, () => {
+            audio.pause();
+            renderState(false);
+        });
+    }
+
+    button.addEventListener('click', () => {
+        if (playing) pauseMusic();
+        else playMusic();
     });
 
-    // ── Arrancar automáticamente al abrir la invitación ──
-    const openBtn = document.getElementById('openInvitation');
-    if (openBtn) {
-        openBtn.addEventListener('click', () => {
-            // Pequeño delay para que el usuario interactuó (política de autoplay)
-            setTimeout(() => {
-                if (!playing) {
-                    // If using YouTube ensure player is ready
-                    if (USE_YT && !ytPlayer) {
-                        // If API not ready yet, do nothing — user can press audio button
-                    } else {
-                        fadeIn();
-                        setPlayingState(true);
-                    }
-                }
-            }, 600);
+    if (volumeControl) {
+        volumeControl.addEventListener('input', () => {
+            targetVolume = Number(volumeControl.value) / 100;
+            if (playing) audio.volume = targetVolume;
         });
     }
 
-    // ── Si el audio falla (archivo no encontrado), ocultar botón ──
-    if (audio) {
-        audio.addEventListener('error', () => {
-            btn.style.display = 'none';
-        });
-    }
+    if (openButton) openButton.addEventListener('click', playMusic, { once: true });
 
-    // Permitir reemplazar la pista desde código (por ejemplo con URL.createObjectURL)
-    window.setCustomAudio = function (url) {
-        try {
-            if (USE_YT) {
-                console.warn('setCustomAudio: modo YouTube activo; use URL directa a mp3 o cambie config.js');
-                return;
-            }
-            audio.pause();
-            audio.src = url;
-            audio.load();
-            // iniciar con fadeIn para consistencia
-            fadeIn();
-            setPlayingState(true);
-        } catch (e) {
-            console.warn('No se pudo establecer audio personalizado', e);
-        }
-    };
+    audio.addEventListener('canplay', () => { player.hidden = false; });
+    audio.addEventListener('error', () => {
+        player.hidden = true;
+        renderState(false);
+        console.warn('No se encontró el archivo local de música:', INVITACION.musica);
+    });
 
-    // ── YouTube IFrame API integration ──
-    if (USE_YT) {
-        // `onYouTubeIframeAPIReady` será llamada por la API cuando esté lista
-        window.onYouTubeIframeAPIReady = function () {
-            try {
-                ytPlayer = new YT.Player('yt-player', {
-                    height: '0',
-                    width: '0',
-                    videoId: INVITACION.youtubeId,
-                    playerVars: {
-                        'playsinline': 1,
-                        'controls': 0,
-                        'rel': 0,
-                        'iv_load_policy': 3,
-                        'showinfo': 0
-                    },
-                    events: {
-                        'onReady': function (e) {
-                            // Mantener en silencio hasta que se reproduzca con fadeIn
-                            try { e.target.setVolume(0); } catch (er) {}
-                        },
-                        'onStateChange': function (e) {
-                            // cuando termina, reiniciar (loop)
-                            if (e.data === YT.PlayerState.ENDED) {
-                                try { e.target.playVideo(); } catch (er) {}
-                            }
-                        }
-                    }
-                });
-            } catch (err) {
-                console.warn('No se pudo inicializar el reproductor de YouTube', err);
-            }
-        };
-    }
-
+    renderState(false);
 })();

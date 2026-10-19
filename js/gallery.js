@@ -7,19 +7,27 @@
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
 
+    // Keep the fixed lightbox outside transformed/clipped sections in the page layout.
+    if(lightbox && lightbox.parentElement !== document.body) {
+        document.body.appendChild(lightbox);
+    }
+
     let currentIndex = -1;
+    let lastTrigger = null;
 
     function openAt(index){
         const btn = thumbs[index];
         if(!btn) return;
         const src = btn.dataset.src || btn.querySelector('img')?.src;
+        if(!lightbox || !lbImage) return;
+        if(currentIndex === -1) lastTrigger = btn;
         lbImage.src = src;
         lbImage.alt = btn.querySelector('img')?.alt || '';
         currentIndex = index;
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden','false');
-        // trap focus on close button
-        closeBtn.focus();
+        // Keep the document at the gallery while moving keyboard focus into the lightbox.
+        if(closeBtn) closeBtn.focus({ preventScroll: true });
     }
 
     function close(){
@@ -27,6 +35,8 @@
         lightbox.setAttribute('aria-hidden','true');
         lbImage.src = '';
         currentIndex = -1;
+        if(lastTrigger) lastTrigger.focus({ preventScroll: true });
+        lastTrigger = null;
     }
 
     function showNext(){

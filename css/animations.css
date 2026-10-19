@@ -6,7 +6,7 @@
 
     transform:translateY(60px);
 
-    animation:fadeUp 1.2s forwards;
+    animation:fadeUp .7s forwards;
 
 }
 
@@ -14,7 +14,7 @@
 
     opacity:0;
 
-    animation:fade 1.5s forwards;
+    animation:fade .9s forwards;
 
 }
 
@@ -24,7 +24,7 @@
 
     transform:scale(.8);
 
-    animation:zoom 1.2s forwards;
+    animation:zoom .7s forwards;
 
 }
 
@@ -88,7 +88,7 @@
 
 #openInvitation{
 
-    animation:glow 2.5s infinite;
+    animation:glow 1.6s infinite;
 
 }
 
@@ -103,17 +103,136 @@
 .particle{
     position:absolute;
     bottom:18%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,1), rgba(176,196,222,.9));
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,1), rgba(214,166,46,.9));
     border-radius:50%;
-    filter:blur(.2px) drop-shadow(0 0 6px rgba(176,196,222,.06));
+    filter:blur(.2px) drop-shadow(0 0 6px rgba(214,166,46,.2));
     transform-origin:center;
     will-change:transform, opacity;
-    animation:particleRise 1.6s ease-out forwards;
+    animation:particleRise 1.1s ease-out forwards;
 }
 
 @keyframes particleRise{
     to{
         transform:translateY(-120px) scale(.7) rotate(10deg);
         opacity:0;
+    }
+}
+
+/* Efecto de tipeo para el nombre usando clip-path */
+.typing-animation{
+    display:inline-block;
+    border-right:3px solid #d4a5d4;
+    animation:typing 2.2s steps(7, end) 0s 1 forwards, blink .5s infinite 2.4s;
+    overflow:hidden;
+}
+
+@keyframes typing{
+    0%{
+        clip-path:polygon(0 0, 0% 0, 0% 100%, 0 100%);
+    }
+    to{
+        clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes blink{
+    0%, 49%{
+        border-right-color:#d4a5d4;
+    }
+    50%, 100%{
+        border-right-color:transparent;
+    }
+}
+
+/* Slide down effect - elementos caen desde arriba */
+.slide-down-in{
+    opacity:0;
+    transform:translateY(-30px);
+    animation:slideDownIn .42s ease-out forwards;
+}
+
+@keyframes slideDownIn{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Fade in para secciones */
+.section-fade-in{
+    opacity:0;
+    animation:fadeInSection .5s ease-out forwards;
+}
+
+.section-fade-in .section-title,
+.section-fade-in .lead,
+.section-fade-in .wrap > div > p {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownStagger .45s ease-out forwards;
+}
+
+.section-fade-in .section-title {
+    animation-delay: 0.08s;
+}
+
+.section-fade-in .lead:nth-of-type(1) {
+    animation-delay: 0.18s;
+}
+
+.section-fade-in .lead:nth-of-type(2) {
+    animation-delay: 0.28s;
+}
+
+.section-fade-in .wrap > div > p {
+    animation-delay: 0.18s;
+}
+
+.section-fade-in .timer,
+.section-fade-in .gallery-grid,
+.section-fade-in .map-container,
+.section-fade-in .rsvp-form {
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: slideDownStagger .45s ease-out .22s forwards;
+}
+
+@keyframes slideDownStagger{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.section-fade-in .wrap > div > p {
+    animation-delay: 0.3s;
+}
+
+.section-fade-in .timer,
+.section-fade-in .gallery-grid,
+.section-fade-in .map-container,
+.section-fade-in .rsvp-form {
+    opacity: 0;
+    animation: fadeInStagger 0.7s ease-out 0.4s forwards;
+}
+
+@keyframes fadeInSection{
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes fadeInStagger{
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes blink{
+    0%, 49%{
+        border-right-color:#8B5A8F;
+    }
+    50%, 100%{
+        border-right-color:transparent;
     }
 }

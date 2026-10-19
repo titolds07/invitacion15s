@@ -1,60 +1,39 @@
-// ── RSVP Form Handler ──
-(function () {
+﻿(function () {
     'use strict';
 
     const form = document.getElementById('rsvpForm');
-    const msg  = document.getElementById('rsvp-msg');
-
+    const message = document.getElementById('rsvp-msg');
+    const whatsappNumber = '573023818512';
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = form.elements.name.value.trim();
+        const email = form.elements.email.value.trim();
+        const guests = Number.parseInt(form.elements.guests.value, 10) || 0;
 
-        const name   = form.name.value.trim();
-        const email  = form.email.value.trim();
-        const guests = parseInt(form.guests.value, 10) || 0;
-
-        // Validación
         if (!name) {
-            showMsg('⚠ Por favor escribe tu nombre.', '#ffcc44');
-            form.querySelector('#rsvp-name').focus();
+            showMessage('Por favor escribe tu nombre.', '#E3CB91');
+            form.elements.name.focus();
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showMessage('Por favor ingresa un correo válido.', '#E3CB91');
+            form.elements.email.focus();
             return;
         }
 
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            showMsg('⚠ Por favor ingresa un correo válido.', '#ffcc44');
-            form.querySelector('#rsvp-email').focus();
-            return;
-        }
-
-        // Guardar en localStorage
-        const submissions = JSON.parse(localStorage.getItem('rsvps') || '[]');
-        submissions.push({ name, email, guests, when: new Date().toISOString() });
-        localStorage.setItem('rsvps', JSON.stringify(submissions));
-
-        // Feedback positivo
-        showMsg(`🎀 ¡Listo, ${name}! Tu asistencia fue confirmada. ¡Te esperamos!`, '#B0C4DE');
-        form.reset();
-
-        // Animación de éxito en el botón
-        const btn = form.querySelector('.btn');
-        if (btn) {
-            btn.textContent = '✓ Confirmado';
-            btn.style.background = 'linear-gradient(135deg, #B0C4DE, #D3D3D3)';
-            setTimeout(() => {
-                btn.textContent = '✉ Confirmar asistencia';
-                btn.style.background = '';
-            }, 3500);
-        }
+        const guestLabel = guests === 0 ? 'Asistiré sin acompañantes' : `Llevaré ${guests} acompañante${guests === 1 ? '' : 's'}`;
+        const text = `Hola, soy ${name}. Confirmo mi asistencia a los XV años de Everlin. ${guestLabel}. Mi correo es ${email}.`;
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+        showMessage('Se abrió WhatsApp con tu confirmación lista. Recuerda pulsar Enviar para hacérnosla llegar.', '#E3CB91');
     });
 
-    function showMsg(text, color) {
-        if (!msg) return;
-        msg.textContent = text;
-        msg.style.color = color || '#B0C4DE';
-        msg.style.opacity = '0';
-        msg.style.transition = 'opacity .3s';
-        setTimeout(() => { msg.style.opacity = '1'; }, 10);
+    function showMessage(text, color) {
+        if (!message) return;
+        message.textContent = text;
+        message.style.color = color;
+        message.setAttribute('role', 'status');
     }
-
 })();

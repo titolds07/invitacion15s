@@ -1,7 +1,7 @@
 // Countdown timer for the event date
 (function () {
-    // Cambia la fecha objetivo aquí si se necesita; formato: YYYY, M-1, D, H, M, S
-    const eventDate = new Date(2026, 11, 11, 19, 0, 0); // 11 dec 2026 19:00 (mes 8 = septiembre)
+    // 11 de diciembre de 2026, 7:00 p. m. en Colombia (UTC-5).
+    const eventDate = new Date('2026-12-11T19:00:00-05:00');
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -27,7 +27,7 @@
             // Opcional: mostrar mensaje cuando llegue
             const timer = document.querySelector('.timer');
             if (timer) {
-                timer.innerHTML = '<div class="time-ended">¡El evento ha comenzado!</div>';
+                timer.innerHTML = '<div class="time-ended">¡La noche de Everlin ya comenzó! Celebremos juntos sus XV años.</div>';
             }
         }
     }

@@ -1,19 +1,28 @@
 :root{
 
-    /* Paleta principal - 'El Secreto de Gala' */
-    --accent:#B0C4DE; /* mora azul claro (detalle elegante) */
-    --primary:#E0E0E0; /* gris plata espejo — textos principales */
-    --muted:#D3D3D3; /* gris plata satinado — detalles secundarios */
-    --dark:#1A1A1A; /* fondo antracita profundo */
-    --text:#E0E0E0;
-    --background:#1A1A1A;
+    --mora-azul:#6555B8;
+    --azul-noche:#07132F;
+    --azul-profundo:#111F4B;
+    --lavanda:#A8A1E8;
+    --lavanda-floral:#C6B7F0;
+    --dorado:#D6A62E;
+    --dorado-luz:#FFE58A;
+    --dorado-oscuro:#9B6B0C;
+    --marfil:#F8F4ED;
+    --accent:var(--dorado);
+    --primary:var(--marfil);
+    --muted:var(--lavanda);
+    --dark:var(--azul-noche);
+    --text:var(--marfil);
+    --background:var(--azul-noche);
 
-    --titleFont:'Playfair Display', serif;
+    --titleFont:'Cormorant Garamond', 'Playfair Display', serif;
+    --scriptFont:'Allura', cursive;
     --textFont:'Poppins', sans-serif;
 
     --radius:18px;
 
-    --transition:.4s ease;
+    --transition:.28s ease;
 
     --maxWidth:1200px;
 
