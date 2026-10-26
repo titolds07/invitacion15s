@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
 </head>
 
@@ -81,6 +82,8 @@
         </section>
 
         <!-- ── Cuenta Regresiva ── -->
+        <div class="night-sky-pair">
+            <img class="night-sky-moon" src="assets/images/luna-nasa.jpg" alt="" aria-hidden="true" loading="lazy">
         <section id="countdown">
             <div class="wrap">
                 <div class="countdown-inner">
@@ -119,6 +122,8 @@
         </section>
 
         <!-- ── Galería ── -->
+        </div>
+
         <section id="gallery">
             <div class="wrap">
                 <div class="gallery-inner">
@@ -209,6 +214,33 @@
             </div>
         </section>
 
+        <!-- Lluvia de sobres -->
+        <section id="gift">
+            <div class="wrap">
+                <div class="gift-inner">
+                    <p class="gift-eyebrow">Un detalle para Everlin</p>
+                    <h3 class="section-title script-title">Lluvia de sobres</h3>
+                    <p class="gift-intro">Tu presencia es lo m&aacute;s importante. Si deseas darme un detalle, puedes dejarlo en mi cofre.</p>
+
+                    <div class="gift-chest" id="giftChestVisual">
+                        <model-viewer class="gift-chest__model" src="assets/images/model.glb" poster="assets/images/cofre-lluvia-sobres.jpg" alt="Cofre dorado 3D para la lluvia de sobres de Everlin" loading="lazy" reveal="auto" camera-controls auto-rotate auto-rotate-delay="1200" rotation-per-second="16deg" camera-orbit="0deg 75deg 65%" interaction-prompt="auto" shadow-intensity="1.2" exposure="1.05" environment-image="neutral">
+                        </model-viewer>
+                        <span class="gift-chest__number" aria-hidden="true">15</span>
+                        <span class="gift-chest__spark gift-chest__spark--one" aria-hidden="true">✦</span>
+                        <span class="gift-chest__spark gift-chest__spark--two" aria-hidden="true">✧</span>
+                        <span class="gift-chest__spark gift-chest__spark--three" aria-hidden="true">✦</span>
+                    </div>
+
+                    <button class="gift-chest__action" id="giftChest" type="button" aria-expanded="false" aria-controls="giftMessage">Ver mensaje</button>
+                    <p class="gift-hint" id="giftHint">Arrastra el cofre para girarlo</p>
+                    <div class="gift-message" id="giftMessage" hidden>
+                        <p>Gracias por celebrar conmigo esta noche tan especial.</p>
+                        <p>Si deseas obsequiarme, recibir&eacute; tu sobre con mucho cari&ntilde;o.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ── Ubicación ── -->
         <section id="location">
             <div class="wrap">
@@ -284,6 +316,7 @@
     <script src="js/app.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/gift.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/audio.js"></script>
     <script src="js/presentation.js"></script>

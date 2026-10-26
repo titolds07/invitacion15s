@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    const sections = Array.from(document.querySelectorAll('#content > section'));
+    const sections = Array.from(document.querySelectorAll('#content > section, #content > .night-sky-pair > section'));
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion || !('IntersectionObserver' in window)) {
