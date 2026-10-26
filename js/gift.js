@@ -3,29 +3,16 @@ const giftChestVisual = document.getElementById('giftChestVisual');
 const giftMessage = document.getElementById('giftMessage');
 const giftHint = document.getElementById('giftHint');
 const giftModel = document.querySelector('.gift-chest__model');
-const mobileLayout = window.matchMedia('(max-width: 600px)');
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-const updateGiftModel = () => {
-    if (!giftModel) return;
-
-    const isMobile = mobileLayout.matches;
-    const modelPath = isMobile ? 'assets/images/model-mobile.glb' : 'assets/images/model.glb';
-
-    if (giftModel.getAttribute('src') !== modelPath) {
-        giftModel.setAttribute('src', modelPath);
-    }
-
-    if (isMobile || reducedMotion.matches) {
-        giftModel.removeAttribute('auto-rotate');
-    } else {
-        giftModel.setAttribute('auto-rotate', '');
+const mobileChestView = window.matchMedia('(max-width: 600px)');
+const setChestCamera = () => {
+    if (giftModel) {
+        giftModel.setAttribute('camera-orbit', mobileChestView.matches
+            ? '0deg 75deg 150%'
+            : '0deg 75deg 115%');
     }
 };
-
-updateGiftModel();
-mobileLayout.addEventListener('change', updateGiftModel);
-reducedMotion.addEventListener('change', updateGiftModel);
+setChestCamera();
+mobileChestView.addEventListener('change', setChestCamera);
 
 if (giftChest && giftChestVisual && giftMessage && giftHint) {
     giftChest.addEventListener('click', () => {
