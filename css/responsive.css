@@ -19,5 +19,7 @@
 .section-title{font-size:28px;}
 .gallery-grid{grid-template-columns:1fr;}
 .rsvp-form{width:100%;}
+.gift-chest{width:min(78vw,340px);height:290px;}
+.gift-chest__number{top:5%;font-size:clamp(27px,7vw,32px);}
 
 }
